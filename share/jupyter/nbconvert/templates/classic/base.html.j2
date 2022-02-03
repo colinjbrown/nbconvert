@@ -24,7 +24,7 @@
 {% block in_prompt -%}
 <div class="prompt input_prompt">
     {%- if cell.execution_count is defined -%}
-        In&nbsp;[{{ cell.execution_count|replace(None, "&nbsp;") }}]:
+        In&nbsp;[{{ '%0x' % cell.execution_count|int }}]:
     {%- else -%}
         In&nbsp;[&nbsp;]:
     {%- endif -%}
@@ -55,7 +55,7 @@
 {%- if output.output_type == 'execute_result' -%}
     <div class="prompt output_prompt">
     {%- if cell.execution_count is defined -%}
-        Out[{{ cell.execution_count|replace(None, "&nbsp;") }}]:
+        {{ output.metadata.output_tag|replace(None, "&nbsp;") }}:
     {%- else -%}
         Out[&nbsp;]:
     {%- endif -%}
