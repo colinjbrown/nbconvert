@@ -24,7 +24,7 @@
 {% block in_prompt -%}
 <div class="prompt input_prompt">
     {%- if cell.execution_count is defined -%}
-        In&nbsp;[{{ '%0x' % cell.execution_count|int }}]:
+        In&nbsp;[{{ ('%0x' % cell.execution_count|int)[-6:] }}]:
     {%- else -%}
         In&nbsp;[&nbsp;]:
     {%- endif -%}
